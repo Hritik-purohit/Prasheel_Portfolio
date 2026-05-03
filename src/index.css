@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  background-color: black;
+  color: white;
+  scroll-behavior: smooth;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Outfit', sans-serif;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.about-img:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+  transition: all 0.4s ease;
+}
+
+.logo-font {
+  font-family: 'Belinda', sans-serif;
+}
+
+@keyframes borderMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-border {
+  animation: borderMove 6s ease infinite;
+}

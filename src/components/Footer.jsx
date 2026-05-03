@@ -1,4 +1,25 @@
+import { useNavigate } from "react-router-dom";
+
 export default function Footer() {
+  const navigate = useNavigate();
+
+ // 🔥 NAVIGATION + SCROLL FIX
+ const goToSection = (id) => {
+  if (window.location.pathname !== "/") {
+    navigate("/");
+
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({
+        behavior: "smooth",
+      });
+    }, 400);
+  } else {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }
+};
+
     return (
       <footer className="relative py-20 px-6 bg-black overflow-hidden">
   
@@ -44,10 +65,18 @@ bg-[length:200%_200%] animate-border">
               <div>
                 <h3 className="text-white font-semibold mb-4">Navigation</h3>
                 <ul className="space-y-2 text-gray-400">
-                  <li className="hover:text-white hover:translate-x-1 transition duration-300 cursor-pointer">Home</li>
-                  <li className="hover:text-white hover:translate-x-1 transition duration-300 cursor-pointer">Services</li>
-                  <li className="hover:text-white hover:translate-x-1 transition duration-300 cursor-pointer">Projects</li>
-                  <li className="hover:text-white hover:translate-x-1 transition duration-300 cursor-pointer">Contact</li>
+                  <button 
+                  onClick={() => {navigate("/");window.scrollTo(0, 0);}}
+                  className="hover:text-white hover:translate-x-1 transition duration-300 cursor-pointer">Home</button>
+                  <button 
+                  onClick={() => goToSection("services")}
+                  className="block hover:text-white hover:translate-x-1 transition duration-300 cursor-pointer">Services</button>
+                  <button 
+                  onClick={() => goToSection("projects")}
+                  className="block hover:text-white hover:translate-x-1 transition duration-300 cursor-pointer">Projects</button>
+                  <button 
+                  onClick={() => goToSection("contact")}
+                  className="block hover:text-white hover:translate-x-1 transition duration-300 cursor-pointer">Contact</button>
                 </ul>
               </div>
   

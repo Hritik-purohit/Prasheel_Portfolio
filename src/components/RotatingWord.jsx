@@ -8,7 +8,7 @@ export default function RotatingWord({ words = [] }) {
    // 🔥 colors array (yaha control kar sakta hai)
    const colors = [
     "#d1d5db", // Modern
-    "#ffffff", // Luxury
+    "#c084fc", // Luxury
     "#a5b4fc", // Elegant
     "#c084fc", // Premium
   ];

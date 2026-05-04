@@ -29,12 +29,15 @@ export default function Contact() {
       // 🔥 scroll control
       ScrollTrigger.create({
         trigger: formEl,
-        start: "top 85%",
-        end: "bottom 30%",
-
+      
+        start: window.innerWidth < 768 ? "top 95%" : "top 85%",
+        end: window.innerWidth < 768 ? "bottom 10%" : "bottom 30%",
+      
+        toggleActions: "play none none reverse",
+      
         onEnter: () => formAnim.play(),
         onLeave: () => formAnim.reverse(),
-
+      
         onEnterBack: () => formAnim.play(),
         onLeaveBack: () => formAnim.reverse()
       });

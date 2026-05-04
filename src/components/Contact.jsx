@@ -29,7 +29,7 @@ export default function Contact() {
       // 🔥 scroll control
       ScrollTrigger.create({
         trigger: formEl,
-        start: "top 90%",
+        start: "top 100%",
         end: "bottom 20%",
 
         onEnter: () => formAnim.play(),

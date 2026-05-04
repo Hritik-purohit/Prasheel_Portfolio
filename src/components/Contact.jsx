@@ -30,7 +30,7 @@ export default function Contact() {
       ScrollTrigger.create({
         trigger: formEl,
         start: "top 100%",
-        end: "bottom 10%",
+        end: "bottom 30%",
 
         onEnter: () => formAnim.play(),
         onLeave: () => formAnim.reverse(),

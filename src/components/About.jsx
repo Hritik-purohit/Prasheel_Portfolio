@@ -74,16 +74,22 @@ export default function About() {
           <div className="about-text">
 
             <h2 className="text-5xl font-bold mb-6 leading-tight">
-            Crafting <RotatingWord words={["Modern", "Luxury", "Elegant"]} /> Structures
+              Crafting{" "}
+
+              <span className="block md:inline">
+                <RotatingWord words={["Modern", "Luxury", "Elegant", "Premium"]} />
+              </span>
+
+              {" "}Structures
             </h2>
 
             <p className="text-gray-400 leading-relaxed mb-6 text-lg">
-              We design and build high-end civil and architectural solutions 
+              We design and build high-end civil and architectural solutions
               with a focus on innovation, durability, and aesthetic excellence.
             </p>
 
             <p className="text-gray-500 leading-relaxed mb-10">
-              From premium residential spaces to large-scale commercial projects, 
+              From premium residential spaces to large-scale commercial projects,
               our work reflects precision engineering and modern design thinking.
             </p>
 

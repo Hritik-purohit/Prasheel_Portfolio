@@ -10,7 +10,7 @@ export default function RotatingWord({ words = [] }) {
     "#d1d5db", // Modern
     "#c084fc", // Luxury
     "#a5b4fc", // Elegant
-    "#c084fc", // Premium
+    "#FAC882", // Premium
   ];
 
   useEffect(() => {

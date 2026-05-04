@@ -29,7 +29,8 @@ export default function ProjectDetails() {
       "https://images.unsplash.com/photo-1618220252344-8ec99ec624b1?w=1200",
       {
         type: "3d",
-        src: "https://panoraven.com/en/embed/6vpLaJZhX2" // 👈 replace if needed
+        src: "https://panoraven.com/en/embed/6vpLaJZhX2",
+        thumbnail: "https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=1160"
       }
     ],
     "Commercial Building": [

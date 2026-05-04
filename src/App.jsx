@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import Loader from "./components/Loader";
 import Layout from "./components/Layout";
@@ -15,6 +15,18 @@ import AllProjects from "./components/AllProjects";
 import ProjectDetails from "./components/ProjectDetails";
 
 import { setupSmoothScroll } from "./utils/scrollAnimations";
+
+
+// 🔥 SCROLL FIX COMPONENT (NEW — DON'T REMOVE)
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -39,8 +51,11 @@ function App() {
       {showSite && (
         <BrowserRouter>
 
-          <Routes>
+          {/* 🔥 ADD THIS LINE ONLY (MAIN FIX) */}
+          <ScrollToTop />
 
+          <Routes>
+         
             {/* 🔥 ALL ROUTES UNDER LAYOUT */}
             <Route element={<Layout />}>
 

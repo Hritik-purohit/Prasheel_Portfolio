@@ -5,11 +5,9 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
-  // 🔥 NAVIGATION + SCROLL FIX
   const goToSection = (id) => {
     if (window.location.pathname !== "/") {
       navigate("/");
-
       setTimeout(() => {
         document.getElementById(id)?.scrollIntoView({
           behavior: "smooth",
@@ -23,7 +21,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="fixed top-0 left-0 w-full z-[99999] bg-black/70 backdrop-blur-md px-6 py-4 flex justify-between items-center">
+    <div className="fixed top-0 left-0 w-full z-[99999] bg-black px-6 py-4 flex justify-between items-center">
 
       {/* LOGO */}
       <h1
@@ -54,74 +52,86 @@ export default function Navbar() {
 
       </div>
 
-      {/* 🔥 HAMBURGER ICON */}
+      {/* HAMBURGER */}
       <div
-        className="md:hidden cursor-pointer z-50"
-        onClick={() => setOpen(!open)}
+        className="md:hidden cursor-pointer z-[10001]"
+        onClick={() => setOpen(true)}
       >
-        <div className={`w-6 h-0.5 bg-white mb-1 transition ${open ? "rotate-45 translate-y-1.5" : ""}`}></div>
-        <div className={`w-6 h-0.5 bg-white mb-1 transition ${open ? "opacity-0" : ""}`}></div>
-        <div className={`w-6 h-0.5 bg-white transition ${open ? "-rotate-45 -translate-y-1.5" : ""}`}></div>
+        <div className="w-6 h-0.5 bg-white mb-1"></div>
+        <div className="w-6 h-0.5 bg-white mb-1"></div>
+        <div className="w-6 h-0.5 bg-white"></div>
       </div>
 
-      {/* 🔥 PREMIUM MOBILE MENU */}
+      {/* 🔥 MOBILE MENU */}
       <div
-        className={`fixed top-0 left-0 w-full h-screen flex flex-col items-center justify-center text-white transition-all duration-500 ${
-          open
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-full pointer-events-none"
-        }`}
+        className={`fixed top-0 left-0 h-full w-[80%] max-w-[320px]
+        z-[10002] transform transition-transform duration-500
+        ${open ? "translate-x-0" : "-translate-x-full"}`}
       >
 
-        {/* 🔥 Background Blur */}
-        <div className="absolute inset-0 bg-black/80 backdrop-blur-xl"></div>
+        {/* 🔥 MAIN CARD */}
+        <div className="h-full bg-[#f5f5f5] rounded-r-3xl overflow-hidden flex flex-col">
 
-        {/* 🔥 Menu Items */}
-        <div className="relative z-10 flex flex-col items-center space-y-8 text-3xl font-semibold">
+          {/* 🔥 TOP DARK HEADER */}
+          <div className="bg-[#111] text-white p-6 pb-8">
 
-          <button
-            onClick={() => {
-              goToSection("about");
-              setOpen(false);
-            }}
-            className="hover:text-blue-400 transition"
-          >
-            About
-          </button>
+            <h2 className="text-lg font-semibold">Menu</h2>
 
-          <button
-            onClick={() => {
-              goToSection("services");
-              setOpen(false);
-            }}
-            className="hover:text-blue-400 transition"
-          >
-            Services
-          </button>
+            <p className="text-sm text-gray-400 mt-1">
+              Explore sections
+            </p>
 
-          <button
-            onClick={() => {
-              goToSection("projects");
-              setOpen(false);
-            }}
-            className="hover:text-blue-400 transition"
-          >
-            Projects
-          </button>
+          </div>
 
-          <button
-            onClick={() => {
-              goToSection("contact");
-              setOpen(false);
-            }}
-            className="hover:text-blue-400 transition"
-          >
-            Contact
-          </button>
+          {/* 🔥 LIGHT OPTIONS */}
+          <div className="flex-1 px-4 py-6 space-y-3">
+
+            <button
+              onClick={() => { goToSection("about"); setOpen(false); }}
+              className="w-full text-left px-4 py-3 rounded-xl bg-white text-black hover:bg-gray-100 transition"
+            >
+              About
+            </button>
+
+            <button
+              onClick={() => { goToSection("services"); setOpen(false); }}
+              className="w-full text-left px-4 py-3 rounded-xl bg-white text-black hover:bg-gray-100 transition"
+            >
+              Services
+            </button>
+
+            <button
+              onClick={() => { goToSection("projects"); setOpen(false); }}
+              className="w-full text-left px-4 py-3 rounded-xl bg-white text-black hover:bg-gray-100 transition"
+            >
+              Projects
+            </button>
+
+            <button
+              onClick={() => { goToSection("contact"); setOpen(false); }}
+              className="w-full text-left px-4 py-3 rounded-xl bg-white text-black hover:bg-gray-100 transition"
+            >
+              Contact
+            </button>
+
+          </div>
+
+          {/* 🔥 FOOTER */}
+          <div className="px-6 pb-6 text-sm text-gray-500">
+            © GrownUP Arch
+          </div>
 
         </div>
 
       </div>
+
+      {/* 🔥 OUTSIDE CLICK CLOSE */}
+      {open && (
+        <div
+          className="fixed inset-0 z-[10001]"
+          onClick={() => setOpen(false)}
+        />
+      )}
 
     </div>
   );
